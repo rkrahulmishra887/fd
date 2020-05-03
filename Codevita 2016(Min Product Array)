@@ -1,0 +1,21 @@
+#Codvita 2016(Min Product array) Solution
+#This code is encoded by Rahul Mishra
+
+T=int(input())
+for _ in range(T):
+    n,k=list(map(int,input().split()))
+    A=list(map(int,input().split()))
+    B=list(map(int,input().split()))
+    original_sum=0
+    new_sum=0
+    for i in range(0,n):
+        original_sum+=A[i]*B[i]
+    new_sum=original_sum
+    for i in range(0,n):
+        curr_prod=A[i]*B[i]
+        select_prod=min((A[i]+2*k)*B[i],(A[i]-2*k)*B[i])
+        temp_sum=((original_sum)-(curr_prod)+(select_prod))
+        if(temp_sum<new_sum):
+            new_sum=temp_sum
+    
+    print(new_sum)
